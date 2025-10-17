@@ -1,37 +1,44 @@
 # Estudo da ISA RISC-V
 
 ### 📘 Descrição
-
-Este projeto tem como objetivo estudar e compreender a ISA (Instruction Set Architecture) da arquitetura RISC-V, explorando seus princípios, instruções, registradores e processos de montagem e execução.
-
-Os exemplos em Assembly foram desenvolvidos utilizando o NASM (Netwide Assembler), com simulação em ambientes compatíveis com RISC-V, como o QEMU ou simuladores online.
-
-Durante a videoaula, são demonstrados o processo de montagem (assembly), linkagem e execução dos programas, com explicações detalhadas sobre o funcionamento das instruções e o fluxo de execução.
+<ul>
+  <li>Este projeto tem como objetivo estudar e compreender a ISA (Instruction Set Architecture) da arquitetura RISC-V, explorando seus princípios, instruções, registradores e processos de montagem e execução.</li>
+  <li>Os exemplos em Assembly foram desenvolvidos utilizando o NASM (Netwide Assembler), com simulação em ambientes compatíveis com RISC-V, como o QEMU ou simuladores online.</li>
+  <li>Durante a videoaula, são demonstrados o processo de montagem (assembly), linkagem e execução dos programas, com explicações detalhadas sobre o funcionamento das instruções e o fluxo de execução.</li>
+</ul>
 
 #
 
 ### 🎯 Objetivos
-
-Compreender o funcionamento da arquitetura RISC-V e suas principais características.
-
-Escrever, montar e executar programas simples em Assembly.
-
-Demonstrar a execução prática em QEMU ou simuladores RISC-V online.
-
-Explicar o processo de montagem, linkagem e execução de código Assembly.
-
-Relacionar o conhecimento prático com os conceitos teóricos de arquitetura de computadores.
+<ul>
+  <li>Compreender o funcionamento da arquitetura RISC-V e suas principais características.</li>
+  <li>Escrever, montar, executar e explicar programas simples em <b>Assembly</b> com foco na associação da arquitetura RISC-V.</li>
+  <li>Demonstrar a execução prática em QEMU ou simuladores RISC-V online.</li>
+  <li>Relacionar o conhecimento prático com os conceitos teóricos de arquitetura de computadores.</li>
+</ul>
 
 #
 
 ### ⚙️ Ferramentas Utilizadas
 
-Assembler: NASM (Netwide Assembler)
+Assembler: <a href="https://www.nasm.us/pub/nasm/releasebuilds">NASM</a> (Execução vscode)
+
+Primeiro passo após programação:
+```bash
+nasm -f elf64 arquivo.asm -o arquivo.o
+```
+Segundo passo:
+```bash
+ld arquivo.o -o arquivo
+```
+Terceiro passo:
+```bash
+./arquivo
+```
 
 Simulador/Emulador: QEMU RISC-V
- ou simuladores online (ex: Ripes, RARS)
 
-Sistema Operacional: Ubuntu / Linux / Windows (com WSL)
+Sistema Operacional: Ubuntu / Windows
 
 #
 
@@ -43,7 +50,7 @@ Sistema Operacional: Ubuntu / Linux / Windows (com WSL)
 │   ├── exemplo1.asm
 │   ├── exemplo2.asm
 │   └── exemplo3.asm
-├── 📂 documentation
+├── 📂 doc
 │   ├── relatorio.pdf
 │   └── roteiro_videoaula.md
 └── 📂 bin
@@ -54,52 +61,38 @@ Sistema Operacional: Ubuntu / Linux / Windows (com WSL)
 
 <ul>
   <li><b>src/</b> – Códigos Assembly desenvolvidos no NASM.</li>
-  <li><b>docs/</b> – Relatórios teóricos e roteiro explicativo da videoaula.</li>
+  <li><b>doc/</b> – Relatórios teóricos e roteiro explicativo da videoaula.</li>
   <li><b>bin/</b> – Arquivos binários gerados após montagem e linkagem.</li>
 </ul>
 
 #
 
 ### 🧾 Conceitos Abordados
-
-RISC (Reduced Instruction Set Computer) – conjunto reduzido de instruções otimizadas.
-
-Registradores RISC-V (x0–x31) – propósito geral e específico.
-
-Ciclo de Instrução: Fetch → Decode → Execute → Memory → Write Back.
-
-Modos de endereçamento e instruções básicas (aritméticas, lógicas, salto e memória).
-
-Processo de montagem e execução em nível de hardware e software.
-
-#
-
-### 🎥 Apresentação em Vídeo
-
-A videoaula deverá incluir:
-
-Explicação teórica sobre a ISA RISC-V.
-
-Demonstração da montagem, linkagem e execução de um código Assembly.
-
-Análise passo a passo das instruções no simulador/emulador.
-
-Comparação com conceitos vistos em sala de aula (registradores, memória, etc).
+<ul>
+  <li>RISC (Reduced Instruction Set Computer) – conjunto reduzido de instruções otimizadas.</li>
+  <li>Registradores RISC-V (x0–x31) – propósito geral e específico.</li>
+  <li>Ciclo de Instrução: Fetch → Decode → Execute → Memory → Write Back.</li>
+  <li>Modos de endereçamento e instruções básicas (aritméticas, lógicas, salto e memória).</li>
+  <li>Processo de montagem e execução em nível de hardware e software.</li>
+</ul>
 
 #
 
 ### 👤 Autores
-
-Nada ainda
+<ul>
+  <li>Evelyn Soletti</li>
+  <li><a href="https://github.com/TheKiess">Frank Kiess</a></li>
+  <li>Julia D.Guerreiro</li>
+  <li>Julia Holz</li>
+</ul>
 
 #
 
 ### 📚 Referências
 
-Documentação Oficial da RISC-V Foundation
-
-QEMU RISC-V Documentation
-
-NASM Official Manual
-
-Livro: Patterson & Hennessy – Computer Organization and Design RISC-V Edition
+<ol>
+  <li>Documentação Oficial da RISC-V Foundation</li>
+  <li>QEMU RISC-V Documentation</li>
+  <li>NASM Official Manual</li>
+  <li>Livro: Patterson & Hennessy – Computer Organization and Design RISC-V Edition</li>
+</ol>
