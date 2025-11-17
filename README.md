@@ -19,24 +19,51 @@
 
 #
 
+### 🧩 Registradores RISC-V
+
+| **Nome**    | **Alias** | **Tipo**              | **Preservação em chamadas** | **Uso principal**                                                           |
+| ----------- | --------- | --------------------- | --------------------------- | --------------------------------------------------------------------------- |
+| **x0**      | zero      | Constante             | n/a                         | Sempre contém **0**; não pode ser modificado.                               |
+| **x1**      | ra        | Retorno               | Caller-saved                | Guarda o endereço de retorno para funções (equivalente ao *link register*). |
+| **x2**      | sp        | Stack Pointer         | Callee-saved                | Aponta para o topo da pilha.                                                |
+| **x3**      | gp        | Global Pointer        | Callee-saved                | Ponteiro para dados globais.                                                |
+| **x4**      | tp        | Thread Pointer        | Callee-saved                | Usado em sistemas com *thread-local storage*.                               |
+| **x5**      | t0        | Temporário            | Caller-saved                | Registradores temporários para cálculos. Não preservados.                   |
+| **x6**      | t1        | Temporário            | Caller-saved                | Temporário.                                                                 |
+| **x7**      | t2        | Temporário            | Caller-saved                | Temporário.                                                                 |
+| **x8**      | s0/fp     | Saved / Frame Pointer | **Callee-saved**            | Variáveis preservadas entre chamadas; pode atuar como frame pointer.        |
+| **x9**      | s1        | Saved                 | Callee-saved                | Preservado entre funções.                                                   |
+| **x10**     | a0        | Arg/Ret 0             | Caller-saved                | 1º argumento de função / valor de retorno. Também syscall arg0.             |
+| **x11**     | a1        | Arg/Ret 1             | Caller-saved                | 2º argumento de função / possível retorno.                                  |
+| **x12–x17** | a2–a7     | Argumentos            | Caller-saved                | Argumentos 3–8 de funções. a7 contém o número da syscall no Linux.          |
+| **x18–x27** | s2–s11    | Saved registers       | **Callee-saved**            | Guardam valores importantes que devem persistir entre funções.              |
+| **x28**     | t3        | Temporário            | Caller-saved                | Temporário adicional.                                                       |
+| **x29**     | t4        | Temporário            | Caller-saved                | Temporário adicional.                                                       |
+| **x30**     | t5        | Temporário            | Caller-saved                | Temporário adicional.                                                       |
+| **x31**     | t6        | Temporário            | Caller-saved                | Temporário adicional.                                                       |
+
+
+
+#
+
 ### ⚙️ Ferramentas Utilizadas
 
 Assembler: <a href="https://www.nasm.us/pub/nasm/releasebuilds">NASM</a> (Execução vscode)
 
+Utilização de comandos: <a href="https://learn.microsoft.com/pt-br/windows/wsl/install">WSL</a> e QEMU (Utilização do terminal ubuntu no windows)
+
 Primeiro passo após programação:
 ```bash
-nasm -f elf64 arquivo.asm -o arquivo.o
+riscv64-linux-gnu-as exe01.s -o exe01.o
 ```
 Segundo passo:
 ```bash
-ld arquivo.o -o arquivo
+riscv64-linux-gnu-ld exe01.o -o exe01 -> Caso não use .include, deve se utilizar o link
 ```
 Terceiro passo:
 ```bash
-./arquivo
+qemu-riscv64 ./exe01
 ```
-
-Simulador/Emulador: QEMU RISC-V
 
 Sistema Operacional: Ubuntu / Windows
 
@@ -47,22 +74,17 @@ Sistema Operacional: Ubuntu / Windows
 📁 isa_risc_v
 ├── 📄 README.md
 ├── 📂 src
-│   ├── exemplo1.asm
-│   ├── exemplo2.asm
-│   └── exemplo3.asm
-├── 📂 doc
-│   ├── relatorio.pdf
-│   └── roteiro_videoaula.md
-└── 📂 bin
-    ├── exemplo1.o
-    ├── exemplo2.o
-    └── exemplo3.bin
+│   ├── exe01.s
+│   ├── exe02.s
+│   └── exe03.s
+└── 📂 doc
+     ├── relatorio.pdf
+     └── roteiro_videoaula.md
 ```
 
 <ul>
   <li><b>src/</b> – Códigos Assembly desenvolvidos no NASM.</li>
   <li><b>doc/</b> – Relatórios teóricos e roteiro explicativo da videoaula.</li>
-  <li><b>bin/</b> – Arquivos binários gerados após montagem e linkagem.</li>
 </ul>
 
 #
@@ -80,10 +102,10 @@ Sistema Operacional: Ubuntu / Windows
 
 ### 👤 Autores
 <ul>
-  <li>Evelyn Soletti</li>
+  <li><a href="https://github.com/Evelyn-Sol">Evelyn Soletti</a></li>
   <li><a href="https://github.com/TheKiess">Frank Kiess</a></li>
-  <li>Julia D.Guerreiro</li>
-  <li>Julia Holz</li>
+  <li><a href="https://github.com/juliaguerreiroo">Julia D.Guerreiro</a></li>
+  <li><a href="https://github.com/juliaholz110">Julia Holz</a></li>
 </ul>
 
 #
