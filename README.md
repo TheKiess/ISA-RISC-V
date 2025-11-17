@@ -42,6 +42,13 @@
 | **x30**     | t5        | Temporário            | Caller-saved                | Temporário adicional.                                                       |
 | **x31**     | t6        | Temporário            | Caller-saved                | Temporário adicional.                                                       |
 
+#### Legenda
+
+🔵 <b>Caller-saved</b> (temporários / t0–t6 e a0–a7) -> Podem ser sobrescritos à vontade pela função chamada. Se você precisa manter o valor, você deve salvá-lo na pilha.
+
+🟢 <b>Callee-saved</b> (s0–s11, + sp, gp, tp) -> A função chamada deve preservar esses valores. Se ela modificá-los, deve salvá-los na pilha e restaurá-los antes do retorno.
+
+🔴 <b>zero (x0)</b> -> Sempre vale 0. Muito útil para inicializações e comparações, como fazíamos no "xor".
 
 
 #
