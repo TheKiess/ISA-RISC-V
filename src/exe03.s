@@ -1,80 +1,78 @@
-# Vetor + Função sum_array + memória
+# ---------------------------- #
+# Soma de vetor + impressão
+# ---------------------------- #
 
-.section .data
-
-array:
-  .word 3, 5, 2, 8, 1
-arr_size:
-  .word 5
+.equ SYS_WRITE, 64
+.equ STDOUT,    1
+.align 4
 
 .section .text
-.global _start
+.globl  _start
 .include "utils.s"
 
-# ------------------------------------
-# Função: sum_array(int *arr, int n)
-# a0 = ponteiro
-# a1 = tamanho
-# retorna soma em a0
-# ------------------------------------
-sum_array:
-  addi sp, sp, -16
-  sw s0, 0(sp)
-  sw s1, 4(sp)
+array:
+  .word 10, 15, 20, 35, 45
 
-  mv s0, a0    # ponteiro
-  mv s1, a1    # tamanho
-  li t0, 0     # soma
-
-loop_sum:
-  beqz s1, end_sum
-
-  lw t1, 0(s0)
-  add t0, t0, t1
-
-  addi s0, s0, 4
-  addi s1, s1, -1
-  j loop_sum
-
-end_sum:
-  mv a0, t0    # retorno
-
-  lw s0, 0(sp)
-  lw s1, 4(sp)
-  addi sp, sp, 16
-  ret
-
-# ------------------------------------
-# _start
-# ------------------------------------
 _start:
-  la a0, array
-  lw a1, arr_size
+  la   t0, array
+  li   t1, 5
+  li   t2, 0
 
-  call sum_array   # retorno em a0 (resultado = 19)
+sumarizacaoArray:
+  beqz t1, SumarizacaoFinalizada
+  lw   t3, 0(t0)
+  add  t2, t2, t3
+  addi t0, t0, 4 #Index
+  addi t1, t1, -1
+  j    sumarizacaoArray
 
-  # imprimir duas casas
-  addi sp, sp, -8
+SumarizacaoFinalizada:
+  li   a7, 64
+  li   a0, STDOUT
+  la   a1, msg_prefix
+  li   a2, 7
+  ecall
 
-  li t1, 10
-  div t2, a0, t1
-  rem t3, a0, t1
+  addi sp, sp, -16
+  addi a1, sp, 0
+  addi a3, t2, 0
 
-  addi t2, t2, 48
+  li   t0, 100
+  div  t3, a3, t0
+  rem  t4, a3, t0
+
+  li   t0, 10
+  div  t5, t4, t0
+  rem  t6, t4, t0
+  beqz t3, numeroDoisDigitos
+
   addi t3, t3, 48
+  addi t5, t5, 48
+  addi t6, t6, 48
+  sb   t3, 0(a1)
+  sb   t5, 1(a1)
+  sb   t6, 2(a1)
+  li   a2, 3
+  li   a0, STDOUT
+  li   a7, SYS_WRITE
+  ecall
+  j    fim
 
-  sb t2, 0(sp)
-  sb t3, 1(sp)
-
-  li a0, 1
-  mv a1, sp
-  li a2, 2
-  li a7, 64
+numeroDoisDigitos:
+  addi t5, t5, 48
+  addi t6, t6, 48
+  sb   t5, 0(a1)
+  sb   t6, 1(a1)
+  li   a2, 2
+  li   a0, STDOUT
+  li   a7, SYS_WRITE
   ecall
 
-  addi sp, sp, 8
+fim:
+  addi sp, sp, 16
 
-  li a0, 0
-  li a7, 93
-  ecall
-  
+  call endl
+  call exit
+
+.section .data
+msg_prefix:    .ascii "Soma = "
