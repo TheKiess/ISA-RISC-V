@@ -1,4 +1,6 @@
-# Loop i += i++
+# --------------------------------- #
+# Primeiro exercício: Loop i += i++ #
+# --------------------------------- #
 
 .section .text
 .global _start
