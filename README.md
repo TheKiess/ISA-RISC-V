@@ -88,8 +88,9 @@ Sistema Operacional: Ubuntu / Windows
 ```
 
 <ul>
-  <li><b>src/</b> – Códigos Assembly desenvolvidos no NASM.</li>
-  <li><b>doc/</b> – Relatórios teóricos e roteiro explicativo da videoaula.</li>
+  <li><b>src</b> – Códigos Assembly desenvolvidos no NASM.</li>
+  <li><b>exe</b> – Atividades apresentadas no vídeo.</li>
+  <li><b>README</b> – Documentação.</li>
 </ul>
 
 #
