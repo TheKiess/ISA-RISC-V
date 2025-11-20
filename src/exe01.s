@@ -1,5 +1,5 @@
 # --------------------------------- #
-# Primeiro exercício: Loop i += i++ #
+# Primeiro exercício: Soma de gauss #
 # --------------------------------- #
 
 .section .text
