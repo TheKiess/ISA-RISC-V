@@ -80,13 +80,11 @@ Sistema Operacional: Ubuntu / Windows
 ```bash
 📁 isa_risc_v
 ├── 📄 README.md
-├── 📂 src
-│   ├── exe01.s
-│   ├── exe02.s
-│   └── exe03.s
-└── 📂 doc
-     ├── relatorio.pdf
-     └── roteiro_videoaula.md
+└── 📂 src
+     ├── exe01.s
+     ├── exe02.s
+     └── exe03.s
+
 ```
 
 <ul>
