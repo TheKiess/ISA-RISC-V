@@ -106,12 +106,9 @@ Sistema Operacional: Ubuntu / Windows
 
 #
 
-### 👤 Autores
+### 👤 Autor
 <ul>
-  <li><a href="https://github.com/Evelyn-Sol">Evelyn Soletti</a></li>
   <li><a href="https://github.com/TheKiess">Frank Kiess</a></li>
-  <li><a href="https://github.com/juliaguerreiroo">Julia D.Guerreiro</a></li>
-  <li><a href="https://github.com/juliaholz110">Julia Holz</a></li>
 </ul>
 
 #
